@@ -1,19 +1,32 @@
-<div class="content">
+<div class="single">
   <div class="container">
-    <div class="content-grids">
-      <div class="col-md-8 content-main">
-        <div *ngFor="let post of posts" class="content-grid">					 
-          <div class="content-grid-info">
-            <img src="./assets/images/{{post.ImageUrl}}" alt=""/>
-            <div class="post-info">
-            <h4><a href="single.html">{{post.Title}}</a>  {{post.CreatedDate}} / 27 Comments</h4>
-            <p>{{post.Summary}}</p>
-            <a href="single.html"><span></span>READ MORE</a>
-            </div>
-          </div>
-        </div>
+     <div class="col-md-8 single-main">				 
+       <div class="single-grid">
+         <img src="./assets/images/post1.jpg" alt=""/>						 					 
+         <p>{{post.Content}}</p>
        </div>
-       <div class="col-md-4 content-right">
+      <ul class="comment-list">
+            <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">admin</a></h5>
+            <li><img src="./assets/images/avatar.png" class="img-responsive" alt="">
+            <div class="desc">
+            <p>View all posts by: <a href="#" title="Posts by admin" rel="author">admin</a></p>
+            </div>
+            <div class="clearfix"></div>
+            </li>
+         </ul>
+       <div class="content-form">
+          <h3>Leave a comment</h3>
+         <form>
+           <input type="text" placeholder="Name" required/>
+           <input type="text" placeholder="Email" required/>
+           <input type="text" placeholder="Phone" required/>
+           <textarea placeholder="Message"></textarea>
+           <input type="submit" value="SEND"/>
+          </form>
+            </div>
+     </div>
+
+       <div class="col-md-4 side-content">
         <div class="recent">
           <h3>RECENT POSTS</h3>
           <ul>
@@ -55,4 +68,3 @@
        <div class="clearfix"></div>
      </div>
    </div>
-</div>
