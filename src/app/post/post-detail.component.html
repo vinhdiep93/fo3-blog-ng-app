@@ -2,14 +2,15 @@
   <div class="container">
      <div class="col-md-8 single-main">				 
        <div class="single-grid">
-         <img src="./assets/images/post1.jpg" alt=""/>						 					 
+          <h4>{{post.Title}}</h4><br>
+         <img src="./assets/images/{{post.ImageUrl}}" alt=""/>						 					 
          <p>{{post.Content}}</p>
        </div>
       <ul class="comment-list">
-            <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">admin</a></h5>
+            <h5 class="post-author_head">Written by <a href="#" title="Posts by admin" rel="author">{{post.Pseudonym}}</a></h5>
             <li><img src="./assets/images/avatar.png" class="img-responsive" alt="">
             <div class="desc">
-            <p>View all posts by: <a href="#" title="Posts by admin" rel="author">admin</a></p>
+            <p>View all posts by: <a href="#" title="Posts by admin" rel="author">{{post.Pseudonym}}</a></p>
             </div>
             <div class="clearfix"></div>
             </li>

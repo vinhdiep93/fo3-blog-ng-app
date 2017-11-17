@@ -13,6 +13,7 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
 import { ApiService } from './shared/services/api.service';
 import { PostService } from './shared/services/post.service';
 import { PostDetailComponent } from './post/post-detail.component';
+import { SharedModule } from './shared/shared.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 @NgModule({
@@ -26,7 +27,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     rootRouting,
     HomeModule,
     HttpClientModule,
-    PostModule
+    PostModule,
+    SharedModule
   ],
   providers: [ApiService,PostService,JwtService],
   bootstrap: [AppComponent]

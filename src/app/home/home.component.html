@@ -8,7 +8,7 @@
             <div class="post-info">
             <h4><a href="single.html">{{post.Title}}</a>  {{post.CreatedDate}} / 27 Comments</h4>
             <p>{{post.Summary}}</p>
-            <a href="single.html"><span></span>READ MORE</a>
+            <a [routerLink]="['/post',post.PostId]"><span></span>READ MORE</a>
             </div>
           </div>
         </div>
