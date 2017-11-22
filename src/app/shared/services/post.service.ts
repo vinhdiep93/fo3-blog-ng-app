@@ -9,12 +9,12 @@ import { Post } from '../models/post.model';
 export class PostService {
 
   constructor(private apiService: ApiService) { }
-  get(slug): Observable<Post[]> {
-    return this.apiService.get('/posts/' + slug)
+  count(): Observable<number> {
+    return this.apiService.get('/posts/count')
            .map(data => data);
   }
 
-  query(config: PostListConfig): Observable<{post: Post[], articlesCount: number}> {
+  query(config: PostListConfig): Observable<Post[]> {
     // Convert any filters over to Angular's URLSearchParams
     const params: HttpParams = new HttpParams();
 
@@ -24,8 +24,8 @@ export class PostService {
     });
 
     return this.apiService
-    .get1(
-      '/post',
+    .get(
+      '/posts?filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.offset,
       params
     ).map(data => data);
   }

@@ -8,14 +8,14 @@ import { Post } from '../shared/models/post.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private posts:Post[];
-  constructor(private postService:PostService) { }
+  //private posts:Post[];
+  constructor() { }
 
   ngOnInit() {
-    this.posts = [];
-    this.postService.get("").subscribe(data =>{
-      this.posts = data;
-    })
+    // this.posts = [];
+    // this.postService.get("").subscribe(data =>{
+    //   this.posts = data;
+    // })
   }
 
 }

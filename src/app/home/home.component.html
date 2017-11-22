@@ -2,16 +2,9 @@
   <div class="container">
     <div class="content-grids">
       <div class="col-md-8 content-main">
-        <div *ngFor="let post of posts" class="content-grid">					 
-          <div class="content-grid-info">
-            <img src="./assets/images/{{post.ImageUrl}}" alt=""/>
-            <div class="post-info">
-            <h4><a href="single.html">{{post.Title}}</a>  {{post.CreatedDate}} / 27 Comments</h4>
-            <p>{{post.Summary}}</p>
-            <a [routerLink]="['/post',post.PostId]"><span></span>READ MORE</a>
-            </div>
-          </div>
-        </div>
+
+        <post-list [limit]=5></post-list>
+       
        </div>
        <div class="col-md-4 content-right">
         <div class="recent">

@@ -26,16 +26,16 @@ export class ApiService {
     return Observable.throw(error);
  }
 
-  get(path: string): Observable<any> {
-    return this.http.get(`${environment.api_url}${path}`)
-    .catch(this.formatErrors)
-    .map((res: Response) => res);
-  }
+  // get(path: string): Observable<any> {
+  //   return this.http.get(`${environment.api_url}${path}`)
+  //   .catch(this.formatErrors)
+  //   .map((res: Response) => res);
+  // }
 
-  get1(path: string, params: HttpParams = new HttpParams()): Observable<any> {
+  get(path: string, params: HttpParams = new HttpParams()): Observable<any> {
     return this.http.get(`${environment.api_url}${path}`, { headers: this.setHeaders(), params: params })
     .catch(this.formatErrors)
-    .map((res: Response) => res.json());
+    .map((res: Response) => res);
   }
 
   put(path: string, body: Object = {}): Observable<any> {

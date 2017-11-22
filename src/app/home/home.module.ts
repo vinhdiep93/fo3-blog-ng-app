@@ -1,3 +1,4 @@
+import { PostListComponent } from '../shared/post-helpers/post-list.component';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
@@ -17,6 +18,6 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
     CommonModule,
     homeRouting
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent,PostListComponent]
 })
 export class HomeModule { }
