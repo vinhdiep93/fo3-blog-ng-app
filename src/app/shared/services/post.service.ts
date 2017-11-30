@@ -3,13 +3,14 @@ import { PostListConfig } from '../models/post-list-config.model';
 import { Observable } from 'rxjs/Rx';
 import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
-import { Post } from '../models/post.model';
+import { Paging, Post } from '../models/post.model';
 
 @Injectable()
 export class PostService {
 
   constructor(private apiService: ApiService) { }
-  count(): Observable<number> {
+  
+  count(): Observable<Paging> {
     return this.apiService.get('/posts/count')
            .map(data => data);
   }
@@ -25,7 +26,8 @@ export class PostService {
 
     return this.apiService
     .get(
-      '/posts?filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.offset,
+      '/posts?filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip,
+      //'/posts',
       params
     ).map(data => data);
   }

@@ -2,7 +2,7 @@
     <div class="content-grid-info">
       <img src="./assets/images/{{post.ImageUrl}}" alt=""/>
       <div class="post-info">
-      <h4><a href="single.html">{{post.Title}}</a>  {{post.CreatedDate}} / 27 Comments</h4>
+      <h4><a [routerLink]="['/post',post.PostId]">{{post.Title}}</a>  {{post.CreatedDate}} / 27 Comments</h4>
       <p>{{post.Summary}}</p>
       <a [routerLink]="['/post',post.PostId]"><span></span>READ MORE</a>
       </div>
@@ -22,3 +22,4 @@
   
     </ul>
   </nav>
+  {{totalPosts}}

@@ -6,6 +6,7 @@ export class PostListConfig {
       // author?: string,
       // favorited?: string,
       limit?: number,
-      offset?: number
+      //offset?: number
+      skip?: number
     } = {};
   }

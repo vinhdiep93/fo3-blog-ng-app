@@ -12,3 +12,7 @@ export class Post {
   CreatedBy: number;
   IsActive: boolean;
 }
+
+export class Paging{
+  count: number;
+}
