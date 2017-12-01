@@ -32,7 +32,7 @@ export class PostService {
     ).map(data => data);
   }
 
-  get1(id): Observable<Post> {
+  get(id): Observable<Post> {
     return this.apiService.get('/posts/' + id)
            .map(data => data);
   }

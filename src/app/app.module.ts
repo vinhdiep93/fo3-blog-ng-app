@@ -1,7 +1,6 @@
-import { JwtService } from './shared/services/jwt.service';
-import { PostModule } from './post/post.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
-import { HomeModule } from './home/home.module';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
@@ -13,7 +12,13 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
 import { ApiService } from './shared/services/api.service';
 import { PostService } from './shared/services/post.service';
 import { PostDetailComponent } from './post/post-detail.component';
+import  {CommentComponent} from './post/comment.component';
 import { SharedModule } from './shared/shared.module';
+
+import { CommentService } from './shared/services/comment.service';
+import { JwtService } from './shared/services/jwt.service';
+import { PostModule } from './post/post.module';
+import { HomeModule } from './home/home.module';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 @NgModule({
@@ -28,9 +33,11 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     HomeModule,
     HttpClientModule,
     PostModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [ApiService,PostService,JwtService],
+  providers: [ApiService,PostService,JwtService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

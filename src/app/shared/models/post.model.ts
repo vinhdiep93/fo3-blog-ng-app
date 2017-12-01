@@ -11,6 +11,7 @@ export class Post {
   CreatedDate: Data;
   CreatedBy: number;
   IsActive: boolean;
+  id: number;
 }
 
 export class Paging{

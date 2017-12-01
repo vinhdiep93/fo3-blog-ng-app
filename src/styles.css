@@ -401,12 +401,12 @@ text-align:justify;
 .single-grid img{
 width:100%;
 }
-ul.comment-list {
+/* ul.comment-list {
 border: 1px solid #BAB6B6;
 padding: 2em;
 margin: 3em 0;
 list-style: none;
-}
+} */
 h5.post-author_head {
 font-size: 1.3em;
 color: #848484;
