@@ -1,0 +1,6 @@
+<div class="recent">
+  <h3>RECENT POSTS</h3>
+  <ul *ngFor="let post of posts">
+  <li><a [routerLink]="['/post',post.PostId]">{{post.Title}}</a></li>
+  </ul>
+</div>

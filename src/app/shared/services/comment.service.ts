@@ -24,10 +24,7 @@ export class CommentService{
     }
 
     add(slug, payload): Observable<Comment> {
-        return this.apiService
-        .post(
-          `/posts/${slug}/comments`,
-          { comment: { body: payload } }
-        ).map(data => data.comment);
+        return this.apiService.post(`/posts/${slug}/comments`,payload)
+                                .map(data => data.comment);
       }
 }

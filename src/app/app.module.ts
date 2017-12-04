@@ -1,4 +1,4 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -34,7 +34,6 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     HttpClientModule,
     PostModule,
     SharedModule,
-    ReactiveFormsModule,
     FormsModule
   ],
   providers: [ApiService,PostService,JwtService, CommentService],

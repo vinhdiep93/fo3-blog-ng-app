@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
@@ -13,7 +14,8 @@ var postRouting : ModuleWithProviders = RouterModule.forChild([{
 @NgModule({
   imports: [
     CommonModule,
-    postRouting
+    postRouting,
+    ReactiveFormsModule
   ],
   declarations: [PostDetailComponent, CommentComponent]
 })

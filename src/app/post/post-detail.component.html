@@ -10,8 +10,8 @@
 
       <div class="content-form">
         <h3>Leave a comment</h3>
-        <form [formGroup]='commentForm' (ngSubmit)="addComment()">
-          <input type="text" formControlName="postId" class="form-controll" />
+        <form [formGroup]="commentForm" (ngSubmit)="addComment()" novalidate>
+          <!-- <input type="hidden" formControlName="postId" class="form-controll" /> -->
           <input type="text" placeholder="User" formControlName="User" class="form-controll" required/>
           <input type="text" placeholder="Email" formControlName="Email" class="form-controll" required/>
           <textarea placeholder="Comment" formControlName="Content" class="form-controll"></textarea>

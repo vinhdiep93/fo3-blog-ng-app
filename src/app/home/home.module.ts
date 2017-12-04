@@ -1,3 +1,4 @@
+import { PostRecentComponent } from '../shared/post-helpers/post-recent.component';
 import { PostListComponent } from '../shared/post-helpers/post-list.component';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
@@ -18,6 +19,6 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
     CommonModule,
     homeRouting
   ],
-  declarations: [HomeComponent,PostListComponent]
+  declarations: [HomeComponent,PostListComponent, PostRecentComponent]
 })
 export class HomeModule { }

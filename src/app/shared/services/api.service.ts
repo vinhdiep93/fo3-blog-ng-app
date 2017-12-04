@@ -45,7 +45,7 @@ export class ApiService {
       { headers: this.setHeaders() }
     )
     .catch(this.formatErrors)
-    .map((res: Response) => res.json());
+    .map((res: Response) => res);
   }
 
   post(path: string, body: Object = {}): Observable<any> {
@@ -55,7 +55,7 @@ export class ApiService {
       { headers: this.setHeaders() }
     )
     .catch(this.formatErrors)
-    .map((res: Response) => res.json());
+    .map((res: Response) => res);
   }
 
   delete(path): Observable<any> {
@@ -64,7 +64,7 @@ export class ApiService {
       { headers: this.setHeaders() }
     )
     .catch(this.formatErrors)
-    .map((res: Response) => res.json());
+    .map((res: Response) => res);
   }
 
 }
