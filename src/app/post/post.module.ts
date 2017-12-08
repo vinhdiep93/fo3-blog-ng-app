@@ -1,3 +1,4 @@
+import { ControlMessagesComponent } from './control-messages.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +18,6 @@ var postRouting : ModuleWithProviders = RouterModule.forChild([{
     postRouting,
     ReactiveFormsModule
   ],
-  declarations: [PostDetailComponent, CommentComponent]
+  declarations: [PostDetailComponent, CommentComponent, ControlMessagesComponent]
 })
 export class PostModule { }

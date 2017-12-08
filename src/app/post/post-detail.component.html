@@ -13,12 +13,16 @@
         <form [formGroup]="commentForm" (ngSubmit)="addComment()" novalidate>
           <!-- <input type="hidden" formControlName="postId" class="form-controll" /> -->
           <input type="text" placeholder="User" formControlName="User" class="form-controll" required/>
+          <control-messages [control]="commentForm.controls.Email"></control-messages>
           <input type="text" placeholder="Email" formControlName="Email" class="form-controll" required/>
+          <control-messages [control]="commentForm.controls.Email"></control-messages>
           <textarea placeholder="Comment" formControlName="Content" class="form-controll"></textarea>
-          <input type="submit" value="Submit" />
+          <control-messages [control]="commentForm.controls.Content"></control-messages>
+          <button type="submit" [disabled]="!commentForm.valid">Submit</button>
         </form>
       </div>
-      <br><br>
+      <br>
+      <br>
       <ul class="comment-list" *ngFor="let comment of comments">
         <app-comment [comment]="comment"></app-comment>
       </ul>

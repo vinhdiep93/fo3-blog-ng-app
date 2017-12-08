@@ -26,7 +26,7 @@ export class PostService {
 
     return this.apiService
     .get(
-      '/posts?filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip,
+      '/posts?filter[order]=id DESC&filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip,
       //'/posts',
       params
     ).map(data => data);

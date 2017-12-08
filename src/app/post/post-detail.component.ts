@@ -1,4 +1,5 @@
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Validator } from 'codelyzer/walkerFactory/walkerFn';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Post } from '../shared/models/post.model';
@@ -26,9 +27,9 @@ export class PostDetailComponent implements OnInit {
     this.comment = new Comment();
     this.route.params.subscribe(params => this.getPost(params['id']));
     this.commentForm = this.fb.group({
-      User: '',
-      Email: '',
-      Content: ''
+      User: ['', Validators.required],
+      Email: ['', Validators.required, Validators.pattern("[^ @]*@[^ @]*")],
+      Content: ['', Validators.required]
     });
   }
 

@@ -3,6 +3,7 @@ import { PostService } from '../services/post.service';
 import { Post, Paging } from '../models/post.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { PostListConfig } from '../models/post-list-config.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'post-list',
@@ -13,10 +14,10 @@ export class PostListComponent implements OnInit {
 
   private posts:Post[];
   @Input() limit: number;
-  query: PostListConfig;
-  currentPage = 1;
-  totalPages: Array<number> = [1];
-  totalPosts: number;
+  private query: PostListConfig;
+  private currentPage = 1;
+  private totalPages: Array<number> = [1];
+  private totalPosts: number;
 
   constructor(private postService:PostService) { }
 
@@ -33,31 +34,21 @@ export class PostListComponent implements OnInit {
     this.posts = [];
     this.query = new PostListConfig();
     var postcount = 0;
-    //this.totalPosts = new Paging();
-     // Create limit and offset filter (if necessary)
     if (this.limit) {
       this.query.filters.limit = this.limit;
       this.query.filters.skip =  (this.limit * (this.currentPage - 1))
     }
-    this.postService.count().subscribe(data=>{
-      this.totalPosts = data.count;
-   });
 
-    this.postService.query(this.query).subscribe(data =>{
+    var countQuery = this.postService.count();
+    var temp = this.postService.query(this.query);
+    Observable.combineLatest(countQuery, temp).subscribe(p => {
+      
+      const paging : Paging = p[0];
+      const data = p[1];
+
+      this.totalPosts = paging.count;
       this.posts = data;
-      //this.totalPosts = data.header.headers.get("X-Total-Count");
-    });
-    //this.totalPosts = this.countPost();
-    //this.totalPosts = this.countPost();
-    this.totalPages = Array.from(new Array(Math.ceil(11/ this.limit)), (val, index) => index + 1);
+      this.totalPages = Array.from(new Array(Math.ceil(this.totalPosts/ this.limit)), (val, index) => index + 1);
+    })
   }
-
-  countPost():number{
-    var postNum = 0;
-    this.postService.count().subscribe(data=>{
-       postNum = data.count;
-    });
-    return postNum;
-  }
-
 }

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
