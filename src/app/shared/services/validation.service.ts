@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 export class ValidationService {
 
-  static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
+static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
     let config = {
         'required': 'Required',
         'invalidCreditCard': 'Is invalid credit card number',
@@ -24,10 +24,12 @@ static creditCardValidator(control) {
 
 static emailValidator(control) {
     // RFC 2822 compliant regex
-    if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
-        return null;
-    } else {
-        return { 'invalidEmailAddress': true };
+    if(control.value){
+        if (control.value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+            return null;
+        } else {
+            return { 'invalidEmailAddress': true };
+        }
     }
 }
 

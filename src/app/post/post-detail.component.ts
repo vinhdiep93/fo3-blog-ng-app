@@ -1,3 +1,4 @@
+import { ValidationService } from '../shared/services/validation.service';
 import { Validator } from 'codelyzer/walkerFactory/walkerFn';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -27,9 +28,9 @@ export class PostDetailComponent implements OnInit {
     this.comment = new Comment();
     this.route.params.subscribe(params => this.getPost(params['id']));
     this.commentForm = this.fb.group({
-      User: ['', Validators.required],
-      Email: ['', Validators.required, Validators.pattern("[^ @]*@[^ @]*")],
-      Content: ['', Validators.required]
+      'User': ['', Validators.required],
+      'Email': ['', Validators.compose([Validators.required, ValidationService.emailValidator])],
+      'Content': ['', Validators.required]
     });
   }
 
