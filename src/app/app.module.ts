@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { CarouselModule } from 'angular4-carousel';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -37,7 +38,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     PostModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule
   ],
   providers: [ApiService,PostService,JwtService, CommentService, ValidationService],
   bootstrap: [AppComponent]
