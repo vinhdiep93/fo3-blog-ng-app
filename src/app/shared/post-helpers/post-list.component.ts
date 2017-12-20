@@ -1,6 +1,6 @@
 import { query } from '@angular/core/src/animation/dsl';
 import { PostService } from '../services/post.service';
-import { Post, Paging } from '../models/post.model';
+import { Paging, Post, PostView } from '../models/post.model';
 import { Component, Input, OnInit } from '@angular/core';
 import { PostListConfig } from '../models/post-list-config.model';
 import { Observable } from 'rxjs/Observable';
@@ -12,8 +12,9 @@ import { Observable } from 'rxjs/Observable';
 })
 export class PostListComponent implements OnInit {
 
-  private posts:Post[];
+  private posts:PostView[];
   @Input() limit: number;
+  @Input() categoryId:number;
   private query: PostListConfig;
   private currentPage = 1;
   private totalPages: Array<number> = [1];
@@ -37,6 +38,9 @@ export class PostListComponent implements OnInit {
     if (this.limit) {
       this.query.filters.limit = this.limit;
       this.query.filters.skip =  (this.limit * (this.currentPage - 1))
+    }
+    if(this.categoryId){
+      this.query.category = this.categoryId;
     }
 
     var countQuery = this.postService.count();

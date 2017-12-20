@@ -1,4 +1,4 @@
-<div class="single">
+<!-- <div class="single">
   <div class="container">
     <div class="col-md-8 single-main">
       <div class="single-grid">
@@ -11,7 +11,6 @@
       <div class="content-form">
         <h3>Leave a comment</h3>
         <form [formGroup]="commentForm" (ngSubmit)="addComment()" novalidate>
-          <!-- <input type="hidden" formControlName="postId" class="form-controll" /> -->
           <input type="text" placeholder="User" formControlName="User" class="form-controll" />
           <control-messages [control]="commentForm.controls.User"></control-messages>
           <input type="text" placeholder="Email" formControlName="Email" class="form-controll" />
@@ -51,4 +50,59 @@
     </div>
     <div class="clearfix"></div>
   </div>
+</div> -->
+<div class="container">
+  <div class="row" style="height:10px"></div>
+
+  <div class="row">
+      <!-- Tiêu điểm -->
+      <div class="col-md-12 title-news">
+          <div class="titletabs">Tin tức</div>
+          <ul class="list-inline tabsnews">
+              <li>
+                  <a [routerLink]="['/category',1]">Cầu thủ</a>
+              </li>
+              <li>
+                  <a [routerLink]="['/category',2]">Chiến thuật</a>
+              </li>
+              <li>
+                  <a [routerLink]="['/category',3]">Đội hình</a>
+              </li>
+              <li>
+                  <a [routerLink]="['/category',4]">Kỹ thuật</a>
+              </li>
+          </ul>
+      </div>
+      <!-- End Tiêu điểm -->
+  </div>
+  <div class="row">
+      <div class="col-md-8 col-left contmid">
+          <div class="postdetail">
+              <div class="acticle">
+                  <h2>{{post.Title}}</h2>
+                  <p class="time"> By {{post.CreatedBy}} | {{post.CreatedDate}} </p>
+
+                  <div class="fb-like" data-href=""
+                      data-layout="standard" data-action="like"></div>
+                  <div class="fb-share-button" data-href=""
+                      data-layout="button_count"></div>
+              </div>
+              <div class="postcont">
+                <div [innerHTML]="post.Content"></div>
+              </div>
+
+              <div class="relabit">
+                 
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <h2 class="subtitle">
+              <img src="../../assets/images/icon-title-1.png">Bài viết liên quan</h2>
+          <div *ngIf="post.CategoryId" class="bxnews cont-inside bggrey">
+            <post-list [categoryId]="post.CategoryId" [limit]=5></post-list>
+          </div>
+      </div>
+  </div>
+
 </div>

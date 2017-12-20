@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 
 import { CommentComponent } from './comment.component';
 import { PostDetailComponent } from './post-detail.component';
+import { SharedModule } from '../shared/shared.module';
 
 var postRouting : ModuleWithProviders = RouterModule.forChild([{
   path:"post/:id",
@@ -16,7 +17,8 @@ var postRouting : ModuleWithProviders = RouterModule.forChild([{
   imports: [
     CommonModule,
     postRouting,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   declarations: [PostDetailComponent, CommentComponent, ControlMessagesComponent]
 })

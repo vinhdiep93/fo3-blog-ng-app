@@ -1,6 +1,6 @@
 import { PostService } from '../services/post.service';
 import { PostListConfig } from '../models/post-list-config.model';
-import { Post } from '../models/post.model';
+import { Post, PostView } from '../models/post.model';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './post-recent.component.html'
 })
 export class PostRecentComponent implements OnInit {
-  private posts: Post[];
+  private posts: PostView[];
   @Input() limit: number;
   query: PostListConfig;
 

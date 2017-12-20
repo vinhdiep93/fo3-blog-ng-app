@@ -3,7 +3,7 @@ import { PostListConfig } from '../models/post-list-config.model';
 import { Observable } from 'rxjs/Rx';
 import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
-import { Paging, Post } from '../models/post.model';
+import { Paging, Post, PostView } from '../models/post.model';
 
 @Injectable()
 export class PostService {
@@ -15,20 +15,16 @@ export class PostService {
            .map(data => data);
   }
 
-  query(config: PostListConfig): Observable<Post[]> {
+  query(config: PostListConfig): Observable<PostView[]> {
     // Convert any filters over to Angular's URLSearchParams
-    const params: HttpParams = new HttpParams();
-
-    Object.keys(config.filters)
-    .forEach((key) => {
-      params.set(key, config.filters[key]);
-    });
-
-    return this.apiService
-    .get(
-      '/posts?filter[order]=id DESC&filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip,
-      //'/posts',
-      params
+   // const params: HttpParams = new HttpParams();
+    if(!config.category){
+      return this.apiService.get(
+        '/posts?filter[include]=category&filter[order]=id DESC&filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip
+      ).map(data => data);
+    }
+    return this.apiService.get(
+      '/posts?filter[include]=category&filter[where][CategoryId]='+config.category+'&filter[order]=id DESC&filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip
     ).map(data => data);
   }
 

@@ -1,6 +1,6 @@
 export class PostListConfig {
     type = 'all';
-  
+    category?:number;
     filters: {
       // tag?: string,
       // author?: string,

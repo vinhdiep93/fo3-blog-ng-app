@@ -7,8 +7,8 @@ export class Post {
   Content: string;
   ImageUrl: string;
   Pseudonym: string;
-  Category: number;
-  CreatedDate: Data;
+  CategoryId: number;
+  CreatedDate: Date;
   CreatedBy: number;
   IsActive: boolean;
   id: number;
@@ -16,4 +16,27 @@ export class Post {
 
 export class Paging{
   count: number;
+}
+
+export class Category{
+  CategoryId: number;
+  Name: string;
+  Description: string;
+  CreatedDate: Date;
+  CreatedBy: number;
+  id: number;
+}
+
+export class PostView {
+  PostId: number;
+  Title: string;
+  Summary: string;
+  Content: string;
+  ImageUrl: string;
+  Pseudonym: string;
+  Category: Category;
+  CreatedDate: Date;
+  CreatedBy: number;
+  IsActive: boolean;
+  id: number;
 }

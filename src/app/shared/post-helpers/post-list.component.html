@@ -1,23 +1,17 @@
-<div *ngFor="let post of posts" class="content-grid">					 
-    <div class="content-grid-info">
-      <img src="./assets/images/{{post.ImageUrl}}" alt=""/>
-      <div class="post-info">
-      <h4><a [routerLink]="['/post',post.PostId]">{{post.Title}}</a>  {{post.CreatedDate}} / 27 Comments</h4>
-      <p>{{post.Summary}}</p>
-      <a [routerLink]="['/post',post.PostId]"><span></span>READ MORE</a>
+  <ul *ngFor="let post of posts" class="bxlistnews">
+    <li>
+      <figure class="thum-img">
+        <img src="./assets/images/articles/{{post.ImageUrl}}">
+      </figure>
+      <div class="contpost">
+          <a [routerLink]="['/category',post.CategoryId]">
+          <span class="label label-danger">{{post.category.Name}}</span>
+        </a>
+        <a [routerLink]="['/post',post.PostId]">{{post.Title}}</a>
+        <p class="entryPost">
+          <span class="authur">By {{post.Pseudonym}}</span> |
+          <span class="date"> {{post.CreatedDate}} </span>
+        </p>
       </div>
-    </div>
-  </div>
-  <nav [hidden]="loading || totalPages <= 1">
-    <ul class="pagination">
-  
-      <li class="page-item"
-        [ngClass]="{'active': pageNumber === currentPage}"
-        *ngFor="let pageNumber of totalPages"
-        (click)="setPageTo(pageNumber)">
-  
-        <a class="page-link" href="#">{{ pageNumber }}</a>
-  
-      </li>
-    </ul>
-  </nav>
+    </li>
+  </ul>

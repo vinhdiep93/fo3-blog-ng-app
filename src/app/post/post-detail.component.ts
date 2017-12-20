@@ -12,10 +12,12 @@ import { PostService } from '../shared/services/post.service';
 
 @Component({
   selector: 'app-post-detail',
-  templateUrl: './post-detail.component.html'
+  templateUrl: './post-detail.component.html',
+  styleUrls: ['./post-detail.component.css']
 })
 export class PostDetailComponent implements OnInit {
   private post:Post;
+  private posts:Post[];
   private comments:Comment[];
   private comment:Comment;
   commentForm: FormGroup;
@@ -48,6 +50,10 @@ export class PostDetailComponent implements OnInit {
     this.commentService.query(postId).subscribe(data=>{
       this.comments = data;
     });
+  }
+
+  getRelativePost(){
+   
   }
 
   addComment(){
