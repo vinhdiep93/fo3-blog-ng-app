@@ -80,7 +80,7 @@
           <div class="postdetail">
               <div class="acticle">
                   <h2>{{post.Title}}</h2>
-                  <p class="time"> By {{post.CreatedBy}} | {{post.CreatedDate}} </p>
+                  <p class="time"> By {{post.Pseudonym}} | {{post.CreatedDate | date:'mediumDate'}} {{post.CreatedDate | date:'shortTime'}}</p>
 
                   <div class="fb-like" data-href=""
                       data-layout="standard" data-action="like"></div>

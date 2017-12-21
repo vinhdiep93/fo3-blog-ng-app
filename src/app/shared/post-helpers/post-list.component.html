@@ -10,7 +10,7 @@
         <a [routerLink]="['/post',post.PostId]">{{post.Title}}</a>
         <p class="entryPost">
           <span class="authur">By {{post.Pseudonym}}</span> |
-          <span class="date"> {{post.CreatedDate}} </span>
+          <span class="date"> {{post.CreatedDate | date:'mediumDate'}} {{post.CreatedDate | date:'shortTime'}} </span>
         </p>
       </div>
     </li>

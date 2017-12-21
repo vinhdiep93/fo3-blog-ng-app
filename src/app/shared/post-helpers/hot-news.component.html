@@ -1,5 +1,5 @@
 <ul *ngFor="let post of posts" class="list-inline hot-news">
-  <span class="label label-danger">Tiêu điểm</span>
+  <span class="label label-danger">Hot news</span>
   <a [routerLink]="['/post',post.id]">
     <i class="glyphicon glyphicon-circle-arrow-right"></i>{{post.Title}}</a>
 </ul>

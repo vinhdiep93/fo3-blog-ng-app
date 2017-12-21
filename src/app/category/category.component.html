@@ -96,7 +96,7 @@
                         <a>
                         </a>
                         <a class="post-title" [routerLink]="['/post',post.id]">{{post.Title}}</a>
-                        <div class="entry-post">Posted by {{post.Pseudonym}} | {{post.CreatedDate}}</div>
+                        <div class="entry-post">Posted by {{post.Pseudonym}} | {{post.CreatedDate | date:'mediumDate'}} {{post.CreatedDate | date:'shortTime'}} </div>
                         <div class="post-subcript"> {{post.Summary}} </div>
                     </div>
                 </li>

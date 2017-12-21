@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ModuleWithProviders } from '@angular/core/src/metadata/ng_module';
 
 import { CategoryComponent } from './category.component';
@@ -19,6 +19,7 @@ const categoryRouting : ModuleWithProviders = RouterModule.forChild([{
     categoryRouting,
     SharedModule
   ],
-  declarations: [CategoryComponent]
+  declarations: [CategoryComponent],
+  providers: [DatePipe],
 })
 export class PostCategoryModule { }
