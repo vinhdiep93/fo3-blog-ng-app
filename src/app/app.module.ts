@@ -1,3 +1,4 @@
+import { NgxSlideshowModule } from 'ngx-slideshow';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -21,12 +22,10 @@ import { JwtService } from './shared/services/jwt.service';
 import { PostModule } from './post/post.module';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from './shared/shared.module';
-import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { CategoryComponent } from './category/category.component';
 import { PostCategoryModule } from './category/category.module';
 import { CategoryService } from './shared/services/category.service';
 import { PostListComponent } from './shared/post-helpers/post-list.component';
-
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 @NgModule({
@@ -44,7 +43,6 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2CarouselamosModule,
     PostCategoryModule
   ],
   providers: [ApiService,PostService,JwtService, CommentService, ValidationService, CategoryService],

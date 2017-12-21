@@ -18,7 +18,12 @@ export class PostService {
   query(config: PostListConfig): Observable<PostView[]> {
     // Convert any filters over to Angular's URLSearchParams
    // const params: HttpParams = new HttpParams();
-    if(!config.category){
+   if(config.isHot){
+    return this.apiService.get(
+      '/posts?filter[where][IsHot]=true&filter[order]=CreatedDate DESC&filter[limit]='+config.filters.limit
+    ).map(data => data);
+   } 
+   if(!config.category){
       return this.apiService.get(
         '/posts?filter[include]=category&filter[order]=id DESC&filter[limit]='+config.filters.limit+'&filter[offset]='+config.filters.skip
       ).map(data => data);

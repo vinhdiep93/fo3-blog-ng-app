@@ -1,3 +1,4 @@
+import { NgxSlideshowModule } from 'ngx-slideshow';
 import { PostRecentComponent } from '../shared/post-helpers/post-recent.component';
 import { PostListComponent } from '../shared/post-helpers/post-list.component';
 import { HomeComponent } from './home.component';
@@ -20,7 +21,8 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     CommonModule,
     homeRouting,
-    SharedModule
+    SharedModule,
+    
   ],
   declarations: [HomeComponent, PostRecentComponent]
 })

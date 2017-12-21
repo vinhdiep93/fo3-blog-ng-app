@@ -12,6 +12,7 @@ export class Post {
   CreatedBy: number;
   IsActive: boolean;
   id: number;
+  IsHot: boolean;
 }
 
 export class Paging{
@@ -39,4 +40,5 @@ export class PostView {
   CreatedBy: number;
   IsActive: boolean;
   id: number;
+  IsHot: boolean;
 }
