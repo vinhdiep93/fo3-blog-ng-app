@@ -39,6 +39,22 @@ export class PostDetailComponent implements OnInit {
   ngOnInit(){
   }
 
+  ngAfterViewInit(){
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+  
+      if (d.getElementById(id)){
+        //if <script id="facebook-jssdk"> exists
+        delete (<any>window).FB;
+        fjs.parentNode.replaceChild(js, fjs);
+      } else {
+        fjs.parentNode.insertBefore(js, fjs);
+      }
+    }(document, 'script', 'facebook-jssdk'));
+  }
+
   getPost(postId){
     this.postService.get(postId).subscribe(data=>{
       this.post = data;
