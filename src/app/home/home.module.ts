@@ -21,8 +21,7 @@ const homeRouting: ModuleWithProviders = RouterModule.forChild([
   imports: [
     CommonModule,
     homeRouting,
-    SharedModule,
-    
+    SharedModule
   ],
   declarations: [HomeComponent, PostRecentComponent]
 })

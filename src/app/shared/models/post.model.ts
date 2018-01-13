@@ -41,4 +41,5 @@ export class PostView {
   IsActive: boolean;
   id: number;
   IsHot: boolean;
+  CategoryId: number;
 }

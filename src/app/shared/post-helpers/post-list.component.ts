@@ -15,6 +15,7 @@ export class PostListComponent implements OnInit {
   private posts:PostView[];
   @Input() limit: number;
   @Input() categoryId:number;
+  @Input() searchText: string;
   private query: PostListConfig;
   private currentPage = 1;
   private totalPages: Array<number> = [1];
@@ -54,5 +55,9 @@ export class PostListComponent implements OnInit {
       this.posts = data;
       this.totalPages = Array.from(new Array(Math.ceil(this.totalPosts/ this.limit)), (val, index) => index + 1);
     })
+  }
+
+  if(searchText) {
+    return this.posts.filter(it => it.CategoryId === this.categoryId);
   }
 }
